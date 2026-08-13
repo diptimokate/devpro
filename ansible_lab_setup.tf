@@ -109,21 +109,6 @@ resource "aws_instance" "worker1" {
     Name = "worker1"
   }
 }
-
-## Create Node3 ======================================================================
-resource "aws_instance" "worker2" {
-  ami               = "${var.amazon_linux_id}"
-  instance_type     = "${var.instance_type}"
-  vpc_security_group_ids = [aws_security_group.allow-web.id]
-  subnet_id              = aws_subnet.dev-subnet.id
-  monitoring             = false
-  key_name          = "${var.pkey}"
-  user_data = file("${path.module}/node.sh")
-  tags = {
-    Name = "worker2"
-  }
-}
-
 ## Create Ansible Control Node =========================================================
 resource "aws_instance" "Ansible" {
   ami               = "${var.amazon_linux_id}"
@@ -142,8 +127,7 @@ resource "aws_instance" "Ansible" {
   provisioner "remote-exec" {
     inline = [
       "echo '${aws_instance.manager.private_ip} manager' >> /etc/hosts",
-      "echo '${aws_instance.worker1.private_ip} worker1' >> /etc/hosts",
-      "echo '${aws_instance.worker2.private_ip} worker2' >> /etc/hosts"
+      "echo '${aws_instance.worker1.private_ip} worker1' >> /etc/hosts"
     ]
   }
   tags = {
