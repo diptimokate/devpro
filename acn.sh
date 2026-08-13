@@ -15,7 +15,6 @@ echo [manager] >> /home/itadmin/punepro/inventory
 echo manager >> /home/itadmin/punepro/inventory
 echo [worker] >> /home/itadmin/punepro/inventory
 echo worker1 >> /home/itadmin/punepro/inventory
-echo worker2 >> /home/itadmin/punepro/inventory
 echo [manager:vars] >> /home/itadmin/punepro/inventory
 echo ansible_port=22 >> /home/itadmin/punepro/inventory
 echo ansible_user=itadmin >> /home/itadmin/punepro/inventory
