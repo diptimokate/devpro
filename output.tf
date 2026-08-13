@@ -11,7 +11,3 @@ output "worker1-pulic-ip" {
  	description = "Public IP address of worker1"
   	value = aws_instance.worker1.public_ip
 }
-output "worker2-pulic-ip" {
- 	description = "Public IP address of worker2"
-  	value = aws_instance.worker2.public_ip
-}
