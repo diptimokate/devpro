@@ -38,5 +38,4 @@ echo become_ask_pass=false  >> /home/itadmin/punepro/ansible.cfg
 
 chown -R  itadmin:itadmin  /home/itadmin/punepro
 cd /home/itadmin/punepro; ansible manager -a "hostnamectl set-hostname manager.example.com"
-cd /home/itadmin/punepro; ansible worker1 -a "hostnamectl set-hostname worker2.example.com"
-cd /home/itadmin/punepro; ansible worker2 -a "hostnamectl set-hostname worker1.example.com"
+cd /home/itadmin/punepro; ansible worker1 -a "hostnamectl set-hostname worker1.example.com"
